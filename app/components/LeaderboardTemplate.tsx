@@ -4,6 +4,7 @@ import { Search, Linkedin, Instagram, Twitter } from 'lucide-react';
 import { Card, CardContent } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ConfettiFireworks } from './ConfettiFireworks';
 
 const LeaderboardTemplate = () => {
   const stats = {
@@ -48,6 +49,9 @@ const LeaderboardTemplate = () => {
   };
 
   return (
+
+    <>
+    <ConfettiFireworks/>
     <div className="max-w-6xl mx-auto p-4 space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
@@ -154,7 +158,9 @@ const LeaderboardTemplate = () => {
         <p>Developed by <span className="text-blue-600 font-semibold">Khitish Kumar Pradhan (GDG-VSSUT Frontend Lead)</span></p>
       </footer>
     </div>
+    </>
   );
+ 
 };
 
 export default LeaderboardTemplate;
