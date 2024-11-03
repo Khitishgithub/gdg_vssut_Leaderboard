@@ -274,7 +274,11 @@ const LeaderboardTemplate = () => {
                 color: "text-pink-600",
                 href: "https://www.instagram.com/gdscvssut/",
               },
-              { Icon: Twitter, color: "text-gray-800", href: "https://x.com/gdscvssut" },
+              {
+                Icon: Twitter,
+                color: "text-gray-800",
+                href: "https://x.com/gdscvssut",
+              },
             ].map((social, index) => (
               <motion.div
                 key={index}
@@ -295,7 +299,7 @@ const LeaderboardTemplate = () => {
 
         {/* Title Section */}
         <motion.div
-          className="text-center space-y-6"
+          className="flex flex-col items-center text-center"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: {
@@ -305,10 +309,21 @@ const LeaderboardTemplate = () => {
             },
           }}
         >
-          <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-            Gen AI Study Jams 2024
+          <Image src="/fd.png" alt="GDSC Logo" height={100} width={100} />
+          <h1 className="text-xl  bg-clip-text text-transparent text-black mt-2">
+            Gen AI Campaign 2024
           </h1>
-          <p className="text-yellow-600 font-semibold">Google Cloud</p>
+          <div>
+            <span className="text-xl font-normal">
+              <span className="text-blue-500">G</span>
+              <span className="text-red-500">o</span>
+              <span className="text-yellow-500">o</span>
+              <span className="text-blue-500">g</span>
+              <span className="text-green-500">l</span>
+              <span className="text-red-500">e</span>
+              <span className="text-gray-600 ml-2">Cloud</span>
+            </span>
+          </div>
         </motion.div>
 
         {/* Stats Cards */}
@@ -430,12 +445,23 @@ const LeaderboardTemplate = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
+          whileHover={{ scale: 1.05 }}
         >
           <p>
             Developed by{" "}
-            <span className="text-blue-600 font-semibold">
+            <motion.span
+              className="text-blue-600 font-semibold cursor-pointer"
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.1, 1], opacity: [0.8, 1, 0.8] }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 1.5,
+              }}
+              whileHover={{ scale: 1.2, color: "#3b82f6" }}
+            >
               Khitish Kumar Pradhan (GDG-VSSUT Frontend Lead)
-            </span>
+            </motion.span>
           </p>
         </motion.footer>
       </motion.div>
