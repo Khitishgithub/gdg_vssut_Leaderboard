@@ -249,7 +249,7 @@ const LeaderboardTemplate = () => {
       >
         {/* Header */}
         <motion.div
-          className="flex justify-between items-center"
+          className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-100 rounded-lg shadow-lg"
           variants={headerVariants}
         >
           <motion.div
@@ -258,42 +258,53 @@ const LeaderboardTemplate = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Image src="/gdg.png" alt="GDSC Logo" height={40} width={40} />
-            <div className="text-sm">
-              <div>Google Developer Group</div>
-              <div className="text-gray-600">
+            <Image src="/gdg.png" alt="GDSC Logo" height={50} width={50} />
+            <div className="text-lg">
+              <div className="font-semibold text-black">
+                Google Developer Group
+              </div>
+              <div className="text-gray-600 text-sm">
                 Veer Surendra Sai University of Technology
               </div>
             </div>
           </motion.div>
-          <div className="flex space-x-4">
-            {[
-              { Icon: Linkedin, color: "text-blue-600", href: "#" },
-              {
-                Icon: Instagram,
-                color: "text-pink-600",
-                href: "https://www.instagram.com/gdscvssut/",
-              },
-              {
-                Icon: Twitter,
-                color: "text-gray-800",
-                href: "https://x.com/gdscvssut",
-              },
-            ].map((social, index) => (
-              <motion.div
-                key={index}
-                variants={socialIconVariants}
-                whileHover="hover"
-              >
-                <Link
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+          {/* Adjusted container for icons */}
+          <div className="flex flex-col md:flex-row items-center space-x-4 mt-2">
+            <div className="flex space-x-4">
+              {" "}
+              {/* Row layout for icons */}
+              {[
+                { Icon: Linkedin, color: "text-blue-600", href: "#" },
+                {
+                  Icon: Instagram,
+                  color: "text-pink-600",
+                  href: "https://www.instagram.com/gdscvssut/",
+                },
+                {
+                  Icon: Twitter,
+                  color: "text-gray-800",
+                  href: "https://x.com/gdscvssut",
+                },
+              ].map((social, index) => (
+                <motion.div
+                  key={index}
+                  variants={socialIconVariants}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <social.Icon size={24} className={social.color} />
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <social.Icon
+                      size={24}
+                      className={`transition-all duration-200 ${social.color}`}
+                    />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -310,7 +321,7 @@ const LeaderboardTemplate = () => {
           }}
         >
           <Image src="/fd.png" alt="GDSC Logo" height={100} width={100} />
-          <h1 className="text-xl  bg-clip-text text-transparent text-black mt-2">
+          <h1 className="text-xl  bg-clip-text  text-black mt-2">
             Gen AI Campaign 2024
           </h1>
           <div>
