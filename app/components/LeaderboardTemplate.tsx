@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Card, CardContent } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,146 +14,24 @@ import {
   BookOpen,
 } from "lucide-react";
 import { ConfettiFireworks } from "./ConfettiFireworks";
+import { participantsData, Participant } from "./participantsData";
 
 const LeaderboardTemplate = () => {
-  const stats = {
-    completions: { current: 50, total: 80 },
-    registrations: 130,
-  };
-
-  const participantsData = [
-    {
-      rank: 1,
-      name: "Shreeti Mohapatra",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 2,
-      name: "Sruti Smaranika Kar",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 3,
-      name: "Adishree SrikumarI",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 4,
-      name: "Pratyasha Panda",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 5,
-      name: "Arpita Panda",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 6,
-      name: "Animesh Pattnaik",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 7,
-      name: "Chirag Agrawal",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 8,
-      name: "Kritika Sureka",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 9,
-      name: "Khitish Kumar Pradhan",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 10,
-      name: "Subham Sworup Mallick",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 11,
-      name: "Devansh Bansal",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 12,
-      name: "Ritesh Kumar Panda",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 13,
-      name: "Vishal Ekka",
-      allPathways: true,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 14,
-      name: "Ansuman baral",
-      allPathways: false,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 15,
-      name: "Aditya Hrudaya Sahoo",
-      allPathways: false,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-    {
-      rank: 16,
-      name: "Ananya Pati",
-      allPathways: false,
-      promptDesign: 1,
-      genAI: 1,
-      arcade: 1,
-    },
-  ];
-
   const [searchQuery, setSearchQuery] = useState("");
-  const [participants, setParticipants] = useState(participantsData);
+  const [participants, setParticipants] =
+    useState<Participant[]>(participantsData);
+  const stats = useMemo(() => {
+    const completionsCount = participantsData.filter(
+      (p) => p.allPathways
+    ).length;
+    return {
+      completions: {
+        current: completionsCount,
+        total: participantsData.length,
+      },
+      registrations: participantsData.length,
+    };
+  }, []);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value.toLowerCase();
@@ -282,7 +160,7 @@ const LeaderboardTemplate = () => {
               {" "}
               {/* Row layout for icons */}
               {[
-                { Icon: Linkedin, color: "text-blue-600", href: "#" },
+                { Icon: Linkedin, color: "text-blue-600", href: "https://www.linkedin.com/company/gdsc-vssut-burla/" },
                 {
                   Icon: Instagram,
                   color: "text-pink-600",
@@ -440,17 +318,19 @@ const LeaderboardTemplate = () => {
                     exit={{ opacity: 0, x: -20 }}
                   >
                     <td className="p-3">{participant.rank}</td>
-                    <td className="p-3 font-medium capitalize">{participant.name} 🏆</td>
+                    <td className="p-3 font-medium capitalize">
+                      {participant.name} 🏆
+                    </td>
                     <td className="p-3 text-center">
-                    <span 
-                      className={`px-2 py-1 rounded-full text-sm ${
-                        participant.allPathways 
-                          ? "bg-green-100 text-green-800" 
-                          : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {participant.allPathways ? "Yes" : "No"}
-                    </span>
+                      <span
+                        className={`px-2 py-1 rounded-full text-sm ${
+                          participant.allPathways
+                            ? "bg-green-100 text-green-800"
+                            : "bg-red-100 text-red-800"
+                        }`}
+                      >
+                        {participant.allPathways ? "Yes" : "No"}
+                      </span>
                     </td>
                     <td className="p-3 text-center">
                       {participant.promptDesign}
