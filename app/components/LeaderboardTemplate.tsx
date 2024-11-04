@@ -18,7 +18,7 @@ import { ConfettiFireworks } from "./ConfettiFireworks";
 const LeaderboardTemplate = () => {
   const stats = {
     completions: { current: 50, total: 80 },
-    registrations: 100,
+    registrations: 130,
   };
 
   const participantsData = [
