@@ -24,7 +24,7 @@ const LeaderboardTemplate = () => {
   const participantsData = [
     {
       rank: 1,
-      name: "SHREETI MOHAPATRA",
+      name: "Shreeti Mohapatra",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -32,7 +32,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 2,
-      name: "KHITISH KUMAR PRADHAN",
+      name: "Sruti Smaranika Kar",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -40,7 +40,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 3,
-      name: "BHARAT PANIGRAHI",
+      name: "Adishree SrikumarI",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -48,7 +48,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 4,
-      name: "VISHAL EKKA",
+      name: "Pratyasha Panda",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -56,7 +56,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 5,
-      name: "ANIMESH PATTNAIK",
+      name: "Arpita Panda",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -64,7 +64,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 6,
-      name: "ANKUSH BEHERA",
+      name: "Animesh Pattnaik",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -72,7 +72,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 7,
-      name: "SUBHAM SWORUP",
+      name: "Chirag Agrawal",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -80,7 +80,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 8,
-      name: "DEVANSH BANSAL",
+      name: "Kritika Sureka",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -88,7 +88,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 9,
-      name: "CHIRAG AGRAWAL",
+      name: "Khitish Kumar Pradhan",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -96,7 +96,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 10,
-      name: "SWAYAMJEET PADHI",
+      name: "Subham Sworup Mallick",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -104,7 +104,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 11,
-      name: "KRITIKA SUREKHA",
+      name: "Devansh Bansal",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -112,7 +112,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 12,
-      name: "ARPITA PANDA",
+      name: "Ritesh Kumar Panda",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -120,7 +120,7 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 13,
-      name: "RITESH KUMAR PANDA",
+      name: "Vishal Ekka",
       allPathways: true,
       promptDesign: 1,
       genAI: 1,
@@ -128,16 +128,24 @@ const LeaderboardTemplate = () => {
     },
     {
       rank: 14,
-      name: "ADISHREE SRIKUMAR",
-      allPathways: true,
+      name: "Ansuman baral",
+      allPathways: false,
       promptDesign: 1,
       genAI: 1,
       arcade: 1,
     },
     {
       rank: 15,
-      name: "PRATYASHA PANDA",
-      allPathways: true,
+      name: "Aditya Hrudaya Sahoo",
+      allPathways: false,
+      promptDesign: 1,
+      genAI: 1,
+      arcade: 1,
+    },
+    {
+      rank: 16,
+      name: "Ananya Pati",
+      allPathways: false,
       promptDesign: 1,
       genAI: 1,
       arcade: 1,
@@ -432,11 +440,17 @@ const LeaderboardTemplate = () => {
                     exit={{ opacity: 0, x: -20 }}
                   >
                     <td className="p-3">{participant.rank}</td>
-                    <td className="p-3 font-medium">{participant.name} 🏆</td>
+                    <td className="p-3 font-medium capitalize">{participant.name} 🏆</td>
                     <td className="p-3 text-center">
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm">
-                        Yes
-                      </span>
+                    <span 
+                      className={`px-2 py-1 rounded-full text-sm ${
+                        participant.allPathways 
+                          ? "bg-green-100 text-green-800" 
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {participant.allPathways ? "Yes" : "No"}
+                    </span>
                     </td>
                     <td className="p-3 text-center">
                       {participant.promptDesign}
