@@ -318,7 +318,7 @@ const LeaderboardTemplate = () => {
                     exit={{ opacity: 0, x: -20 }}
                   >
                     <td className="p-3">{participant.rank}</td>
-                    <td className="p-3 font-medium capitalize">
+                    <td className="p-3 font-medium uppercase">
                       {participant.name} 🏆
                     </td>
                     <td className="p-3 text-center">
