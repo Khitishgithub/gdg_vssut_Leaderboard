@@ -310,7 +310,7 @@ export interface Participant {
       arcade: 1,
     },
     {
-      rank: 37,
+      rank: 38,
       name: "Ashish Kumar Mishra",
       allPathways: false,
       promptDesign: 1,
@@ -318,7 +318,7 @@ export interface Participant {
       arcade: 1,
     },
     {
-      rank: 38,
+      rank: 39,
       name: "Remit Kumar Patra",
       allPathways: false,
       promptDesign: 1,
@@ -326,7 +326,7 @@ export interface Participant {
       arcade: 1,
     },
     {
-      rank: 39,
+      rank: 40,
       name: "Sakalabhaktula Sameer Raja",
       allPathways: false,
       promptDesign: 1,
@@ -334,7 +334,7 @@ export interface Participant {
       arcade: 1,
     },
     {
-      rank: 40,
+      rank: 41,
       name: "Binay Padhan",
       allPathways: false,
       promptDesign: 1,
