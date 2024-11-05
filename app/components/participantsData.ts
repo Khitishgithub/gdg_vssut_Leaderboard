@@ -952,7 +952,7 @@ export interface Participant {
   {
       "rank": 118,
       "name": "Oorja Mahana",
-      "allPathways": true,
+      "allPathways": false,
       "promptDesign": 0,
       "genAI": 0,
       "arcade": 0

@@ -301,7 +301,7 @@ const LeaderboardTemplate = () => {
                 <th className="p-3 text-left">Rank</th>
                 <th className="p-3 text-left">Name</th>
                 <th className="p-3 text-center">All Pathways Completed</th>
-                <th className=" p-3 text-center">Prompt Design in Vertex AI</th>
+                <th className="p-3 text-center">Prompt Design in Vertex AI</th>
                 <th className="p-3 text-center">Develop GenAI Apps</th>
                 <th className="p-3 text-center">Gen AI Arcade</th>
               </tr>
@@ -319,7 +319,7 @@ const LeaderboardTemplate = () => {
                   >
                     <td className="p-3">{participant.rank}</td>
                     <td className="p-3 font-medium uppercase">
-                      {participant.name} 🏆
+                      {participant.name} {participant.allPathways && "🏆"}
                     </td>
                     <td className="p-3 text-center">
                       <span
